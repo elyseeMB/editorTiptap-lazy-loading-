@@ -1,4 +1,4 @@
-name: Deploy Vite site and Storybook to GitHub Pages
+name: Deploy My Portfolio to GitHub Pages
 
 on:
   push:
@@ -31,18 +31,10 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
 
       - name: Build Vite site
-        run: yarn build
-
-      - name: Build Storybook
-        run: yarn build-storybook
-
-      - name: Copy Storybook to Vite dist
-        run: |
-          mkdir -p dist/storybook
-          cp -r storybook-static/* dist/storybook/
+        run: pnpm build
 
       - name: Add .nojekyll
         run: touch dist/.nojekyll
