@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# editorTiptap‑lazy‑loading
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une démo/recherche autour de **lazy-loading**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Fonctionnalités
 
-## Expanding the ESLint configuration
+- ⚡ Chargement paresseux des extensions Tiptap
+- 💻 Mise en place d’un éditeur React moderne avec `@tiptap/react`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## 🛠️ Installation & utilisation
+
+1. Clone le dépôt :
+
+   ```bash
+   git clone https://github.com/elyseeMB/editorTiptap-lazy-loading-.git
+   cd editorTiptap-lazy-loading-
+   ```
+
+2. Installe les dépendances :
+
+   ```bash
+   pnpm install
+   ```
+
+3. Lance l’environnement de développement :
+
+   ```bash
+   pnpm run dev
+   ```
+
+   L’éditeur se lancera normalement sur `http://localhost:5173`.
+
+4. Pour builder :
+
+   ```bash
+   pnpm run build
+   ```
+
+   → Produit le dossier `dist/` prêt à être déployé.
+
+---
+
+## 🎯 Objectif du projet
+
+Ce projet est un **proof of concept** pour :
+
+- Charger dynamiquement les extensions Tiptap utilisées (par exemple _CodeBlock_, _Link_, _Image_…) afin d’alléger le bundle principal.
+
+---
+
+## 🧩 Structure principale
+
+```text
+src/
+├─ extensions/       # Extensions Tiptap chargées à la demande
+├─ components/
+│   └─ Editor.jsx     # Composant d’éditeur principal
+├─ vite.config.ts
+├─ package.json
+└─ ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+## 📄 Licence
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+Ce projet est sous licence **MIT** — fais-en bon usage !
