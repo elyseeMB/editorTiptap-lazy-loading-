@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 const Skeleton = ({
   type = "line",
@@ -157,7 +157,10 @@ const Skeleton = ({
 export default Skeleton;
 
 // Composant CenteredLayout avec skeleton
-export const CenteredLayout = ({ loading = false, children }) => {
+export const CenteredLayout = ({
+  loading = false,
+  children,
+}: PropsWithChildren<{ loading?: boolean }>) => {
   const layoutStyle = {
     display: "flex",
     justifyContent: "center",
